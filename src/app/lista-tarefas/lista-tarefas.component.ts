@@ -15,13 +15,14 @@ import { state, style, trigger } from '@angular/animations';
       state(
         'default',
         style({
-          border: '2px solid #b2b6FF',
+          transition: 'all 0.3s ease',
         })
       ),
       state(
         'highlighted',
         style({
-          border: '4px solid b2b6FF',
+          border: '2px solid #b2b6FF',
+          filter: 'brightness(95%)',
         })
       ),
     ]),
@@ -32,6 +33,7 @@ export class ListaTarefasComponent implements OnInit {
   formAberto: boolean = false;
   categoria: string = '';
   validado: boolean = false;
+  indexTarefa: number = -1;
 
   formulario: FormGroup = this.fomBuilder.group({
     id: [0],
