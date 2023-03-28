@@ -22,15 +22,14 @@ export const highlightedStateTrigger = trigger('highlightedState', [
 ]);
 
 export const shownStateTrigger = trigger('shownState', [
-  state('shown', style({})),
-  transition('void => shown', [
+  transition(':enter', [
     style({
       opacity: 0,
       PointerEvent: 'none',
     }),
     animate(300, style({ opacity: 1, PointerEvent: 'all' })),
   ]),
-  transition('shown => void', [
+  transition(':leave', [
     animate(
       300,
       style({
