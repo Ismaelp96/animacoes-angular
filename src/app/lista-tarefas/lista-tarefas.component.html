@@ -53,11 +53,7 @@
       >
         Salvar
       </button>
-      <button
-        (click)="cancelar()"
-        class="botao-form botao-cancelar"
-        @shownState
-      >
+      <button (click)="cancelar()" class="botao-form botao-cancelar">
         Cancelar
       </button>
     </div>
@@ -97,6 +93,7 @@
                 : 'icone-unchecked'
             "
             (click)="finalizarTarefa(tarefa.id)"
+            [@checkIn]="tarefa.id === id ? 'checked' : 'unchecked'"
           ></button>
         </p>
       </div>

@@ -25,9 +25,8 @@ export const shownStateTrigger = trigger('shownState', [
   transition(':enter', [
     style({
       opacity: 0,
-      PointerEvent: 'none',
     }),
-    animate(300, style({ opacity: 1, PointerEvent: 'all' })),
+    animate(300, style({ opacity: 1 })),
   ]),
   transition(':leave', [
     animate(
@@ -36,5 +35,11 @@ export const shownStateTrigger = trigger('shownState', [
         opacity: 0,
       })
     ),
+  ]),
+]);
+
+export const checkInTrigger = trigger('checkIn', [
+  transition('* => checked', [
+    animate('400ms ease-in', style({ transform: 'scale(0.4)' })),
   ]),
 ]);
