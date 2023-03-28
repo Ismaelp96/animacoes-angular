@@ -6,6 +6,7 @@
     class="formulario ff-prompt"
     [formGroup]="formulario"
     *ngIf="formAberto"
+    [@shownState]="formAberto ? 'shown' : 'void'"
   >
     <label for="descricao">Descrição da tarefa</label>
     <input
@@ -52,7 +53,11 @@
       >
         Salvar
       </button>
-      <button (click)="cancelar()" class="botao-form botao-cancelar">
+      <button
+        (click)="cancelar()"
+        class="botao-form botao-cancelar"
+        [@shownStateTrigger]="formAberto ? 'shown' : 'void'"
+      >
         Cancelar
       </button>
     </div>

@@ -16,7 +16,26 @@ export const highlightedStateTrigger = trigger('highlightedState', [
     })
   ),
   transition('default => highlighted', [
-    animate('0.3s ease-out', style({ transform: 'translateY(2px)' })),
-    animate(100),
+    animate('2ms ease-out', style({ transform: 'translateY(2px)' })),
+    animate(200),
+  ]),
+]);
+
+export const shownStateTrigger = trigger('shownState', [
+  state('shown', style({})),
+  transition('void => shown', [
+    style({
+      opacity: 0,
+      PointerEvent: 'none',
+    }),
+    animate(300, style({ opacity: 1, PointerEvent: 'all' })),
+  ]),
+  transition('shown => void', [
+    animate(
+      300,
+      style({
+        opacity: 0,
+      })
+    ),
   ]),
 ]);
